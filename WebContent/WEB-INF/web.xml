@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>QCM-NVM</display-name>
+  <welcome-file-list>
+    <welcome-file>connexion.jsp</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <description>Pool de connexion principal</description>
+    <res-ref-name>jdbc/dsQcm</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+  </resource-ref>
+  <servlet>
+    <description>Servlet de connexion candidats</description>
+    <display-name>ConnexionCandidatServlet</display-name>
+    <servlet-name>ConnexionCandidatServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.ConnexionCandidatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnexionCandidatServlet</servlet-name>
+    <url-pattern>/ConnexionCandidatServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet de connexion du personnel</description>
+    <display-name>ConnexionPersonnelServlet</display-name>
+    <servlet-name>ConnexionPersonnelServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.ConnexionPersonnelServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConnexionPersonnelServlet</servlet-name>
+    <url-pattern>/ConnexionPersonnelServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Page d'accueil des candidats</description>
+    <display-name>AccueilCandidatServlet</display-name>
+    <servlet-name>AccueilCandidatServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.AccueilCandidatServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AccueilCandidatServlet</servlet-name>
+    <url-pattern>/candidat/accueil</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>QuestionServlet</display-name>
+    <servlet-name>QuestionServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.QuestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>QuestionServlet</servlet-name>
+    <url-pattern>/candidat/questionnaire</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeconnexionServlet</display-name>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.DeconnexionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeconnexionServlet</servlet-name>
+    <url-pattern>/Deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet de l'ecran de synthese</description>
+    <display-name>SyntheseServlet</display-name>
+    <servlet-name>SyntheseServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.SyntheseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SyntheseServlet</servlet-name>
+    <url-pattern>/candidat/synthese</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ValidationTestServlet</display-name>
+    <servlet-name>ValidationTestServlet</servlet-name>
+    <servlet-class>fr.eni_ecole.qcm.servlets.ValidationTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidationTestServlet</servlet-name>
+    <url-pattern>/candidat/validation</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <display-name>ConnexionCandidatFilter</display-name>
+    <filter-name>ConnexionCandidatFilter</filter-name>
+    <filter-class>fr.eni_ecole.qcm.filters.ConnexionCandidatFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ConnexionCandidatFilter</filter-name>
+    <url-pattern>/candidat/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter>
+    <display-name>TestEnCoursFilter</display-name>
+    <filter-name>TestEnCoursFilter</filter-name>
+    <filter-class>fr.eni_ecole.qcm.filters.TestEnCoursFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>TestEnCoursFilter</filter-name>
+    <url-pattern>/candidat/accueil</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  
+</web-app>

@@ -1,0 +1,11 @@
+		<jsp:directive.page import ="fr.eni_ecole.qcm.beans.*" /> <!-- TODO : a remove, non nécessaire à la compilation l'import est fait dans le header.inc -->
+		<% 
+		
+			Candidat c = (Candidat) request.getSession().getAttribute("candidat");
+		%>
+		<header>
+			<div id="avatar"></div>
+			<div id="nom_candidat"><%=c.getPrenom()%> <%=c.getNom()%></div>
+			<div id="deconnexion"><a href="<%=request.getContextPath()%>/Deconnexion" title="Déconnexion"></a></div>
+			<hr>
+		</header>	

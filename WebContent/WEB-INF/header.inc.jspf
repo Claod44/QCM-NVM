@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:directive.page import ="fr.eni_ecole.qcm.beans.*, java.util.*" />
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link media="all" rel="stylesheet" href="<%=request.getContextPath()%>/style/styles.css" type="text/css"/>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    	<script type="text/javascript" src="<%= request.getContextPath()+"/scripts/jquery.progress.js" %>"></script>
+		<link rel="icon" href="<%=request.getContextPath()%>/images/favicon.ico" />
+		<title>QCM - NVM</title>
+	</head>
+	<body>
+		<section id="conteneur">
